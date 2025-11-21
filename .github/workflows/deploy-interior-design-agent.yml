@@ -1,6 +1,6 @@
 name: Deploy Interior Design Agent
 
-'on':
+on:
   push:
     # Paths include the initializer, prompt, workflow, and any associated tools
     paths:
@@ -40,7 +40,7 @@ jobs:
       - name: Login via Azure CLI
         uses: azure/login@v2.1.1
         with:
-            creds: ${{ secrets.AZURE_CREDENTIALS }}
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       - name: Run interior design agent initializer
         run: |
