@@ -47,7 +47,7 @@ with project_client:
             model=os.environ["AZURE_AI_AGENT_MODEL_DEPLOYMENT_NAME"],  # Model deployment name
             name="Zava Interior Design Agent",  # Name of the agent
             instructions=ID_PROMPT,  # Updated instructions for the agent
-            toolset=toolset
+            #toolset=toolset
         )
         print(f"Updated agent, ID: {agent.id}")
     else:
@@ -55,6 +55,6 @@ with project_client:
             model=os.environ["AZURE_AI_AGENT_MODEL_DEPLOYMENT_NAME"],  # Model deployment name
             name="Zava Interior Design Agent",  # Name of the agent
             instructions=ID_PROMPT,  # Instructions for the agent
-            toolset=toolset
+            #toolset=toolset
         )
         print(f"Created agent, ID: {agent.id}")
