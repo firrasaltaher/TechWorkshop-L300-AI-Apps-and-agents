@@ -5,14 +5,11 @@ on:
     # Paths include the initializer, prompt, workflow, and any associated tools
     paths:
       - 'src/app/agents/interiorDesignAgent_initializer.py'
-      - 'src/app/tools/discountLogic.py'
       - 'src/prompts/InteriorDesignAgentPrompt.txt'
       - '.github/workflows/deploy-interior-design-agent.yml'
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-permissions:
-  contents: read
 
 jobs:
   run-interior-design-agent:
