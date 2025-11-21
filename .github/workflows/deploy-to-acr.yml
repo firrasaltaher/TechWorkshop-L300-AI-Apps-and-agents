@@ -36,19 +36,9 @@ jobs:
       - name: Build and push Docker image
         working-directory: ./src
         run: |
-          docker build -t ${{ env.AZURE_CONTAINER_REGISTRY }}/techworkshop-app:latest .
-          docker push ${{ env.AZURE_CONTAINER_REGISTRY }}/techworkshop-app:latest
-
-          # docker build \
-          #   --file Dockerfile \
-          #   --build-arg ENV_CONTENT="${{ secrets.ENV }}" \
-          #   --tag ${{ secrets.ACR_LOGIN_SERVER }}/techworkshop-app:${{ github.sha }} \
-          #   --tag ${{ secrets.ACR_LOGIN_SERVER }}/techworkshop-app:latest \
-          #   .
-          # docker push ${{ secrets.ACR_LOGIN_SERVER }}/techworkshop-app:${{ github.sha }}
-          # docker push ${{ secrets.ACR_LOGIN_SERVER }}/techworkshop-app:latest
+          docker build -t ${{ secrets.ACR_LOGIN_SERVER }}.azurecr.io/techworkshop-app:latest .
+          docker push ${{ secrets.ACR_LOGIN_SERVER }}.azurecr.io/techworkshop-app:latest
 
       - name: Output image tags
         run: |
-          # echo "Pushed image: ${{ secrets.ACR_LOGIN_SERVER }}/techworkshop-app:${{ github.sha }}"
-          echo "Pushed image: ${{ secrets.ACR_LOGIN_SERVER }}/techworkshop-app:latest"
+          echo "Pushed image: ${{ secrets.ACR_LOGIN_SERVER }}.azurecr.io/techworkshop-app:latest"
