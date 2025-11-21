@@ -36,9 +36,9 @@ jobs:
       - name: Build and push Docker image
         working-directory: ./src
         run: |
-          docker build -t ${{ secrets.ACR_LOGIN_SERVER }}.azurecr.io/chat-app:latest .
-          docker push ${{ secrets.ACR_LOGIN_SERVER }}.azurecr.io/chat-app:latest
+          docker build -t ${{ secrets.ACR_LOGIN_SERVER }}/chat-app:latest .
+          docker push ${{ secrets.ACR_LOGIN_SERVER }}/chat-app:latest
 
       - name: Output image tags
         run: |
-          echo "Pushed image: ${{ secrets.ACR_LOGIN_SERVER }}.azurecr.io/chat-app:latest"
+          echo "Pushed image: ${{ secrets.ACR_LOGIN_SERVER }}/chat-app:latest"
