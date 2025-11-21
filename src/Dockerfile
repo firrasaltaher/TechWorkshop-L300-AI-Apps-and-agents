@@ -1,4 +1,3 @@
-
 FROM python:3.12-slim
 
 # Upgrade pip and system packages to reduce vulnerabilities
@@ -17,12 +16,12 @@ RUN apt-get update && apt-get install -y \
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
-
 # Copy the rest of the code
 COPY . .
 
-# Copy .env file into the image (for python-dotenv)
-COPY .env .env
+# Accept ENV content as build argument and create .env file securely
+ARG ENV_CONTENT
+RUN echo "$ENV_CONTENT" > .env
 
 # Expose the port (default FastAPI/uvicorn port)
 EXPOSE 8000
